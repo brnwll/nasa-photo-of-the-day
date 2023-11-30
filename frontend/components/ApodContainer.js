@@ -1,24 +1,24 @@
 import React from 'react'
-import AposMedia from './AposMedia'
-import AposDetails from './AposDetails'
+import ApodMedia from './ApodMedia'
+import ApodDetails from './ApodDetails'
 import Spinner from './Spinner'
 
-export default function AposContainer({ fetchingData, data }) {
+export default function ApodContainer({ fetchingData, data }) {
   const renderSpinner = () => (<Spinner></Spinner>)
 
   const renderAposComponents = () => (
     <div>
-      <AposMedia 
+      <ApodMedia 
         srcUrl={data.url} 
         title={data.title}
         mediaType={data.media_type}>
-      </AposMedia>
-      <AposDetails
+      </ApodMedia>
+      <ApodDetails
         copyright={data.copyright} 
         date={data.date} 
         title={data.title} 
         explanation={data.explanation}>
-      </AposDetails>
+      </ApodDetails>
     </div>
   )
 

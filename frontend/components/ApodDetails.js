@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AposDetails({ copyright, date, title, explanation }) {
+export default function ApodDetails({ copyright, date, title, explanation }) {
   return (
     <div>
       <h2>{copyright}</h2>

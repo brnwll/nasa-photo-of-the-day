@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import mockData from '../mock/mockData'
-import AposDatePicker from './AposDatePicker'
-import AposContainer from './AposContainer'
+import ApodDatePicker from './ApodDatePicker'
+import ApodContainer from './ApodContainer'
 import { normalize } from './Helpers'
 import { API_KEY } from '../api-key'
 
@@ -52,14 +52,14 @@ function App() {
 
   return (
     <div>
-      <AposDatePicker 
+      <ApodDatePicker 
         selectedDate={date} 
         setDate={setDate}>
-      </AposDatePicker>
-      <AposContainer 
+      </ApodDatePicker>
+      <ApodContainer 
         data={data}
         fetchingData={fetchingData}>
-      </AposContainer>
+      </ApodContainer>
     </div>
   )
 }

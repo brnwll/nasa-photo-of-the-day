@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AposPhoto({ srcUrl, title, mediaType }) {
+export default function ApodPhoto({ srcUrl, title, mediaType }) {
 
   const image = <img src={srcUrl} alt={title} />
   const video = (

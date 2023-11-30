@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import { normalize } from './Helpers'
 
-export default function AposDatePicker({ selectedDate, setDate }) {
+export default function ApodDatePicker({ selectedDate, setDate }) {
 
   const valid = clickedDate => {
     const sameDayClicked = normalize(clickedDate) === normalize(selectedDate)
