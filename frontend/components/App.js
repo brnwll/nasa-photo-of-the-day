@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import mockData from '../mock/mockData'
+import AposPhoto from './AposPhoto'
+import AposDetails from './ApoDetails'
 import { API_KEY } from '../api-key'
 
 function App() {
@@ -18,9 +20,20 @@ function App() {
       .catch(err => console.error(err))
   }
 
-  return (
-    <div></div>
+  console.log(data)
+  const renderApos = () => (
+    <div>
+      <AposPhoto srcUrl={data.url} alt={data.title}></AposPhoto>
+      <AposDetails
+        copyright={data.copyright} 
+        date={data.date} 
+        title={data.title} 
+        explanation={data.explanation}>
+      </AposDetails>
+    </div>
   )
+
+  return data ? renderApos() : (<></>) // TODO: Render spinner if data is null
 }
 
 export default App
