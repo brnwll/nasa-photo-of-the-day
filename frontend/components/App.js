@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-//import mockData from '../mock/mockData'
 import ApodDatePicker from './ApodDatePicker'
 import ApodContainer from './ApodContainer'
 import { normalize } from './Helpers'
@@ -20,16 +19,6 @@ function App() {
   const [date, setDate] = useState(new Date())
   // track fetching to display user feedback when changing the date
   const [fetchingData, setFetchingData] = useState(true)
-
-  // Use during dev instead of fetchData
-  // const fetchMockData = () => {
-  //   setFetchingData(true)
-  //   setTimeout(() => {
-  //     setFetchingData(false)
-  //     setData(mockData)
-  //   }, 500)
-  // }
-  // useEffect(() => { fetchMockData()}, [])
 
   const fetchData = (url = API_URL) => {
     // TODO: Handle x-ratelimit-limit exceeded
