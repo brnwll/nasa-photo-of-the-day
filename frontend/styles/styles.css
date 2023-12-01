@@ -7,6 +7,7 @@ body {
   font-family: 'Titillium Web', sans-serif;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 #root {
@@ -24,8 +25,8 @@ h1, h2 {
   overflow-y: auto;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  flex: 2; /* always fill vertical space */
+  background: url('../assets/stars.jpeg') black;
 }
 
 header, footer {

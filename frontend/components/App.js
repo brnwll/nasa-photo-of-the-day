@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import mockData from '../mock/mockData'
+import styled from 'styled-components'
+//import mockData from '../mock/mockData'
 import ApodDatePicker from './ApodDatePicker'
 import ApodContainer from './ApodContainer'
 import { normalize } from './Helpers'
 import { API_KEY } from '../api-key'
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+`
 
 function App() {
   const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
@@ -13,13 +21,13 @@ function App() {
   // track fetching to display user feedback when changing the date
   const [fetchingData, setFetchingData] = useState(true)
 
-  // use this code in place of the actual api while styling the project
+  // Use during dev instead of fetchData
   // const fetchMockData = () => {
   //   setFetchingData(true)
   //   setTimeout(() => {
   //     setFetchingData(false)
   //     setData(mockData)
-  //   }, 1000)
+  //   }, 500)
   // }
   // useEffect(() => { fetchMockData()}, [])
 
@@ -42,7 +50,7 @@ function App() {
   }, [date])
 
   const fetchYesterday = () => {
-    // only fetch the previous day if the date state is set to today
+    // only fetch the previous day if the date state slice is set to today
     if (normalize(new Date()) === normalize(date)) {
       let yesterday = new Date();
       yesterday.setDate(new Date().getDate() - 1);
@@ -51,7 +59,7 @@ function App() {
   }
 
   return (
-    <div>
+    <StyledApp>
       <ApodDatePicker 
         selectedDate={date} 
         setDate={setDate}>
@@ -60,7 +68,7 @@ function App() {
         data={data}
         fetchingData={fetchingData}>
       </ApodContainer>
-    </div>
+    </StyledApp>
   )
 }
 

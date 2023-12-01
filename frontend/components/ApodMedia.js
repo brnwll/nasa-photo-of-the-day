@@ -1,10 +1,25 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export default function ApodPhoto({ srcUrl, title, mediaType }) {
+const StyledApodMedia = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img, iframe {
+    border-radius: 1rem;
+    box-shadow: 0px 2px 5px black;
+  }
+`
 
-  const image = <img src={srcUrl} alt={title} />
+export default function ApodMedia({ srcUrl, title, mediaType }) {
+
+  const image = (
+    <StyledApodMedia>
+      <img src={srcUrl} alt={title} />
+    </StyledApodMedia>
+  )
   const video = (
-    <div>
+    <StyledApodMedia>
       <iframe
         width="853"
         height="480"
@@ -13,10 +28,10 @@ export default function ApodPhoto({ srcUrl, title, mediaType }) {
         allowFullScreen
         title={title}
       />
-    </div>
+    </StyledApodMedia>
   )
 
   if (mediaType === 'image') return image
   if (mediaType === 'video') return video
-  return <div>Unsupported media type.</div>
+  return <div>Unsupported media type</div>
 }
