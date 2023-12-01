@@ -42,6 +42,7 @@ function App() {
       .catch(err => {
         // at 12am the api is not updated immediately, resulting in 404, so...
         fetchYesterday()
+        alert(`The selected date does not have an Astonomy Photo Of The Day. Displaying latest photo.`)
         console.error(err)
       })
   }
@@ -50,12 +51,9 @@ function App() {
   }, [date])
 
   const fetchYesterday = () => {
-    // only fetch the previous day if the date state slice is set to today
-    if (normalize(new Date()) === normalize(date)) {
-      let yesterday = new Date();
-      yesterday.setDate(new Date().getDate() - 1);
-      setDate(yesterday)
-    }
+    let yesterday = new Date();
+    yesterday.setDate(new Date().getDate() - 1);
+    setDate(yesterday)
   }
 
   return (
